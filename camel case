@@ -1,0 +1,31 @@
+#include <iostream>
+
+void toCamelCase(std::string &str) 
+{
+if (!str.empty()) 
+{
+str[0] = std::toupper(str[0]);
+}
+for (size_t i = 1; i < str.length(); i++) 
+{
+if (str[i] == ' ')
+{
+i++;
+if (i < str.length())
+{
+str[i] = std::toupper(str[i]);
+}
+}
+else {
+str[i] = std::tolower(str[i]);
+}
+}
+}
+int main() {
+std::string sentence;
+std::cout << "Enter a sentence: ";
+std::getline(std::cin, sentence);
+toCamelCase(sentence);
+std::cout << "Camel Case: " << sentence << std::endl;
+return 0;
+}
